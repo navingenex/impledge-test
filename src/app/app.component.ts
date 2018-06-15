@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   fileData = '';
   file: string[] = [];
   endIndexOfWord = 0;
@@ -17,8 +17,6 @@ export class AppComponent implements OnInit {
   first_word = '';
   second_word = '';
   showLoader = true;
-  ngOnInit() {
-  }
 
   // reading lines from textarea
   readFile() {
@@ -78,10 +76,7 @@ export class AppComponent implements OnInit {
             if (index !== -1) {
               this.file.splice(index, 1);
             }
-            this.longestWord = '';
-            this.foundWord = '';
-            this.matchedWordListOfIndex = [];
-            this.endIndexOfWord = 0;
+            this.clear();
             this.sortByLength(this.file);
           }
         }
@@ -96,10 +91,7 @@ export class AppComponent implements OnInit {
       if (index !== -1) {
         this.file.splice(index, 1);
       }
-      this.longestWord = '';
-      this.foundWord = '';
-      this.matchedWordListOfIndex = [];
-      this.endIndexOfWord = 0;
+      this.clear();
       this.sortByLength(this.file);
     } else if
     // checking found word and longest word is qual and
@@ -116,4 +108,10 @@ export class AppComponent implements OnInit {
     }
   }
 
+  clear() {
+    this.longestWord = '';
+    this.foundWord = '';
+    this.matchedWordListOfIndex = [];
+    this.endIndexOfWord = 0;
+  }
 }

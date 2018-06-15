@@ -7,4 +7,3 @@ dogcatsdog
 hippopotamuses
 rat
 ratcatdogcat
-ratratdogcatrat
