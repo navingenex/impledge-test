@@ -26,11 +26,18 @@ export class AppComponent {
 
   // sorting list of words as ASC
   sortByLength(file: string[]) {
-    this.file.sort(function (a, b) {
-      return b.length - a.length;
-    });
+	   for (let i = 0; i < this.file.length; i++) {
+        let temp = this.file[i];
+        if (temp.length > this.longestWord.length) {
+            this.longestWord = temp;
+        }
+    }
+	  
+    // this.file.sort(function (a, b) {
+      // return b.length - a.length;
+    // });
     // storing first longest word from sorted list
-    this.longestWord = this.file[0];
+	 
     // storing index of first largest word from sorted array
     this.firstLongestWordIndex = this.file.indexOf(this.longestWord);
     this.findMatchedWord(0, 1);
